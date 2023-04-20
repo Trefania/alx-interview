@@ -1,9 +1,9 @@
 # This Script solves the pascal principle
 
-def factorial(num):
-    if (num == 1) or (num == 0):
+def factorial(number):
+    if (number == 1) or (number == 0):
         return 1
-    return (num * factorial(num-1)) # multiplication
+    return (number * factorial(number-1)) # multiplication
 
 def pascal_triangle(n): # n = number
     triangle = [] # empty list
