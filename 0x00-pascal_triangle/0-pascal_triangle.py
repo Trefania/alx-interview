@@ -18,6 +18,7 @@ def pascal_triangle(x):
                 temp_list.append(triangle[i-1][a-1] + triangle[i-1][a])
         triangle.append(temp_list)  # append temp list to return list
     return triangle
+
 # This Script solves the pascal principle
 
 #def factorial(number):
