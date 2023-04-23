@@ -6,6 +6,7 @@ def pascal_triangle(x):
     """
     returns a representation of the Pascal’s triangle of n
     """
+
     triangle = []  # init empty list to be printed
     if x <= 0:  # print empty list if x==0
         return triangle
@@ -19,4 +20,5 @@ def pascal_triangle(x):
             else:  # add 2 opposite values to get new value
                 temp_list.append(triangle[i-1][a-1] + triangle[i-1][a])
         triangle.append(temp_list)  # add temp list to return list
+        #print triangle
     return triangle
