@@ -27,7 +27,7 @@ def canUnlockAll(boxes):
             # check if the box is already unlocked
             if not unlocked[box]:
                 # unlock the box
-                unlocked[box] = True
+                unlocked[box] = False
                 # add the keys from the box to the list
                 keys.extend(boxes[box])
     # check if all boxes are unlocked
