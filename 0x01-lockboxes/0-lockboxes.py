@@ -1,16 +1,34 @@
 #!/usr/bin/python3
 
-"""Simple code which determines if all boxes in a list can be unlocked"""
-
 def canUnlockAll(boxes):
-    # list of unlocked boxes
-    unlocked_boxes = [0]
+    """
+    Determines if all the boxes can be opened.
 
-    # iterate over unlocked boxes and add keys to new boxes
-    for box in unlocked_boxes:
-        for key in boxes[box]:
-            if key not in unlocked_boxes:
-                unlocked_boxes.append(key)
+    Args:
+    boxes: A list of lists, where each inner list represents a box and
+           contains the keys to other boxes.
 
-    # if all boxes are unlocked, return True
-    return len(unlocked_boxes) == len(boxes)
+    Returns:
+    True if all boxes can be opened, else False.
+    """
+    num_boxes = len(boxes)
+    # create a list to keep track of which boxes are unlocked
+    unlocked = [False] * num_boxes
+    # the first box is unlocked by default
+    unlocked[0] = True
+    # create a list to keep track of the keys we have
+    keys = [0]
+    # loop through the keys we have and try to unlock new boxes
+    while keys:
+        # get the first key from the list
+        key = keys.pop(0)
+        # loop through the boxes the key can unlock
+        for box in boxes[key]:
+            # check if the box is already unlocked
+            if not unlocked[box]:
+                # unlock the box
+                unlocked[box] = True
+                # add the keys from the box to the list
+                keys.extend(boxes[box])
+    # check if all boxes are unlocked
+    return all(unlocked)
