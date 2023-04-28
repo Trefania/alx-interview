@@ -13,7 +13,7 @@ def canUnlockAll(boxes):
     """
     num_boxes = len(boxes)
     # create a list to keep track of which boxes are unlocked
-    unlocked = [False] * num_boxes
+    unlocked = [True] * num_boxes
     # the first box is unlocked by default
     unlocked[0] = True
     # create a list to keep track of the keys we have
