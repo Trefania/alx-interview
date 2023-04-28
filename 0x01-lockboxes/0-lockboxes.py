@@ -1,3 +1,7 @@
+#!/usr/bin/python3
+
+"""Simple code which determines if all boxes in a list can be unlocked"""
+
 def canUnlockAll(boxes):
     # list of unlocked boxes
     unlocked_boxes = [0]
