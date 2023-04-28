@@ -1,6 +1,11 @@
 #!/usr/bin/python3
 
 """
+Lockboxes module
+"""
+
+def canUnlockAll(boxes):
+    """
     Determines if all the boxes can be opened.
 
     Args:
@@ -10,9 +15,6 @@
     Returns:
         True if all boxes can be opened, else False.
     """
-
-def canUnlockAll(boxes):
-
     num_boxes = len(boxes)
     # create a list to keep track of which boxes are unlocked
     unlocked = [False] * num_boxes
