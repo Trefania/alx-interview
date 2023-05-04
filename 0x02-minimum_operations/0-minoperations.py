@@ -35,8 +35,3 @@ def minOperations(n):
             buffer_size *= 2
     # Return the number of operations
     return num_ops
-
-
-# Example usage:
-n = 9
-print(minOperations(n))  # Outputs 6
