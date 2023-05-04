@@ -10,7 +10,6 @@ def minOperations(n):
     # If n is less than or equal to 1, return 0 since no operations are needed to get 0 or 1 "H" characters
     if n <= 1:
         return 0
-
     # Initialize a variable to keep track of the number of operations performed
     ops = 0
 
