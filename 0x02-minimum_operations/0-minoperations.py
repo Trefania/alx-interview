@@ -2,36 +2,33 @@
 """
 Given a number n, write a method that calculates the fewest number of operations needed to result in exactly n H characters in the file.
 
-Define a function minOperations that takes an integer n as input
+Define a function that takes an integer as input and returns the minimum number of "Copy All" and "Paste" operations required to get that many "H" characters in a text file
 """
 
 
 def minOperations(n):
-    # If n is less than 1, return 0 as it is impossible to achieve
-    if n < 1:
+    # If n is less than or equal to 1, return 0 since no operations are needed to get 0 or 1 "H" characters
+    if n <= 1:
         return 0
-    # Initialize variables for the number of operations and the current number of characters
-    num_ops = 0
-    curr_chars = 1
-    # Initialize variables for the number of characters to copy and the current buffer size
-    copy_chars = 1
-    buffer_size = 1
-    # Loop until the current number of characters equals n
-    while curr_chars < n:
-        # If n is evenly divisible by the current buffer size, update the number of characters to copy
-        if n % buffer_size == 0:
-            copy_chars = curr_chars
-        # If the current buffer size is less than the number of characters to copy, update the number of characters to copy
-        if buffer_size < copy_chars:
-            copy_chars = buffer_size
-        # Update the current number of characters and the number of operations based on the number of characters copied
-        curr_chars += copy_chars
-        num_ops += 1
-        # If the current buffer size is less than the number of characters copied, update the buffer size
-        if buffer_size < copy_chars:
-            buffer_size = copy_chars
-        # Otherwise, double the buffer size
-        else:
-            buffer_size *= 2
-    # Return the number of operations
-    return num_ops
+
+    # Initialize a variable to keep track of the number of operations performed
+    ops = 0
+
+    # While n is even, divide n by 2 and count the number of operations required to do so
+    while n % 2 == 0:
+        ops += 1
+        n //= 2
+
+    # Iterate over odd numbers starting from 3 up to the square root of n
+    for i in range(3, int(n**0.5)+1, 2):
+        # While n is divisible by i, divide n by i and count the number of operations required to do so
+        while n % i == 0:
+            ops += i
+            n //= i
+
+    # If n is greater than 2, add n to the total number of operations required
+    if n > 2:
+        ops += n
+
+    # Return the total number of operations required to get n "H" characters in the text file
+    return ops
