@@ -5,7 +5,7 @@ Given a number n, write a method that calculates the fewest number of operations
 Define a function that takes an integer as input and returns the minimum number of "Copy All" and "Paste" operations required to get that many "H" characters in a text file
 """
 
-
+# This function takes an integer n as input and returns the minimum number of operations needed
 def minOperations(n):
     if n <= 1:
         return 0  # If n is 0 or 1, it is impossible to get n H's
