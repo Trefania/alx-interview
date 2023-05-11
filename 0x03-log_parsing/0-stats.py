@@ -2,7 +2,9 @@
 
 """a script that reads stdin line by line and computes metrics"""
 
+
 import sys
+
 
 # Initialize variables to keep track of metrics
 total_size = 0
