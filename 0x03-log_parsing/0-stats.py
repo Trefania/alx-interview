@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 
+"""a script that reads stdin line by line and computes metrics"""
+
 import sys
 
 # Initialize variables to keep track of metrics
