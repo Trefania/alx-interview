@@ -1,44 +1,45 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 
-"""a script that reads stdin line by line and computes metrics"""
-
+"""Script that reads stdin line by line and computes metrics"""
 
 import sys
 
 
-# Initialize variables to keep track of metrics
-total_size = 0
-status_codes = {}
+def printsts(dic, size):
+    """parse important data"""
+    print("File size: {:d}".format(size))
+    for i in sorted(dic.keys()):
+        if dic[i] != 0:
+            print("{}: {:d}".format(i, dic[i]))
+
+
+stas = {"200": 0, "301": 0, "400": 0, "401": 0, "403": 0,
+       "404": 0, "405": 0, "500": 0}
+
+count = 0
+size = 0
 
 try:
-    # Read lines from stdin
-    for i, line in enumerate(sys.stdin):
+    for line in sys.stdin:
+        if count != 0 and count % 10 == 0:
+            printsts(stas, size)
+
+        stlist = line.split()
+        count += 1
+
         try:
-            # Parse input line
-            p, status, size = line.split()
+            size += int(stlist[-1])
+        except:
+            pass
 
-            # Convert size to integer
-            size = int(size)
+        try:
+            if stlist[-2] in stas:
+                stas[stlist[-2]] += 1
+        except:
+            pass
+    printsts(stas, size)
 
-            # Update total file size
-            total_size += size
-
-            # Update status code count
-            if status.isdigit():
-                status_codes[int(status)] = status_codes.get(int(status), 0) + 1
-        except ValueError:
-            # Skip invalid lines
-            continue
-
-        # Print statistics after every 10 lines
-        if (i + 1) % 10 == 0:
-            print("Total file size:", total_size)
-            for code in sorted(status_codes):
-                print(code, ":", status_codes[code])
-            print()
 
 except KeyboardInterrupt:
-    # Print statistics when a keyboard interruption occurs
-    print("Total file size:", total_size)
-    for code in sorted(status_codes):
-        print(code, ":", status_codes[code])
+    printsts(stas, size)
+    raise
