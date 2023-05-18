@@ -5,10 +5,8 @@ a method that determines if a given data set represents a valid UTF-8 encoding.
 """
 
 def validUTF8(data):
-"""Determines if a given data set
-    represents a valid utf-8 encoding
-"""
-    num_bytes = 0 # Nums of bytes currently in e UTF-8 char
+""" a valid utf-8 encoding """
+    num_bytes =0:
 
     for byte in data:
         # Check if the byte is a continuation byte
