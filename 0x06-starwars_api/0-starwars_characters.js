@@ -13,7 +13,7 @@ request(url, async (error, response, body) => {
   for (const character of charactersArray) {
     await new Promise((resolve, reject) => {
       request(character, (error, response, body) => {
-        err && console.log(error);
+        error && console.log(error);
 
         console.log(JSON.parse(body).name);
         resolve();
