@@ -1,3 +1,5 @@
+#!/usr/bin/node
+
 const request = require('request');
 
 // Function to retrieve the character names from a specific Star Wars movie
