@@ -3,7 +3,7 @@
 
 
 def isWinner(x, nums):
-    """x - rounds
+    """
     nums - numbers list
     """
     if x <= 0 or nums is None:
