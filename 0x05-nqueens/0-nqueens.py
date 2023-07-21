@@ -19,7 +19,8 @@ n = int(sys.argv[1])
 
 
 def queens(n, i=0, a=[], b=[], c=[]):
-    """ find possible positions """
+
+    """ find possible position """
     if i < n:
         for j in range(n):
             if j not in a and i + j not in b and i - j not in c:
